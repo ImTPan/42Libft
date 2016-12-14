@@ -6,7 +6,7 @@
 /*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 18:59:29 by tpan              #+#    #+#             */
-/*   Updated: 2016/11/17 12:04:55 by tpan             ###   ########.fr       */
+/*   Updated: 2016/12/14 08:32:40 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,5 @@ int					ft_isspace(int c);
 void				ft_reverse(char s[]);
 void				ft_putendl(char const *s);
 int					ft_isnegative(int c);
+char				*ft_realloc(char *ptr, size_t size);
 #endif

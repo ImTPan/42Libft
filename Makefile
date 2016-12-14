@@ -6,7 +6,7 @@
 #    By: tpan <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/31 18:58:43 by tpan              #+#    #+#              #
-#    Updated: 2016/11/17 12:04:45 by tpan             ###   ########.fr        #
+#    Updated: 2016/12/14 08:32:21 by tpan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC 	= ft_strlen.c ft_strncpy.c ft_strcpy.c \
 		  ft_lstnew.c ft_lstdelone.c ft_itoa.c \
 		  ft_lstdel.c ft_lstiter.c ft_lstmap.c \
 		  ft_strsub.c ft_lstadd.c ft_isnegative.c \
-		  ft_reverse.c \
+		  ft_reverse.c ft_realloc.c\
 
 OBJ 	= $(SRC:.c=.o)
 	
