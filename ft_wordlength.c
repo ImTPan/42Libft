@@ -6,18 +6,19 @@
 /*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 14:02:45 by tpan              #+#    #+#             */
-/*   Updated: 2016/11/13 14:07:59 by tpan             ###   ########.fr       */
+/*   Updated: 2016/12/16 14:13:25 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_wordlength(char *str, char delimiter)
+int	ft_wordlength(char *str,int i, char delimiter)
 {
-	int		i;
+	size_t len;
 
-	i = 0;
+	len = 0;
 	while (str[i] != '\0' && str[i] != delimiter)
 		i++;
+		len++;
 	return (i);
 }
