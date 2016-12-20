@@ -6,13 +6,13 @@
 /*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 14:02:45 by tpan              #+#    #+#             */
-/*   Updated: 2016/12/19 12:51:32 by tpan             ###   ########.fr       */
+/*   Updated: 2016/12/19 17:02:24 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_wordlength(char *str, int i, char delimiter)
+size_t	ft_wordlength(char *str, int i, int delimiter)
 {
 	size_t len;
 

@@ -6,7 +6,7 @@
 /*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 17:35:55 by tpan              #+#    #+#             */
-/*   Updated: 2016/12/19 16:42:23 by tpan             ###   ########.fr       */
+/*   Updated: 2016/12/19 16:47:17 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*list;
-	
-	list = (t_list *)malloc(sizeof(t_list))
+
+	list = (t_list *)malloc(sizeof(t_list));
 	if (list == NULL)
 		return (NULL);
 	if (content == NULL)
