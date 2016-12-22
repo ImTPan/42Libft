@@ -6,7 +6,7 @@
 /*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 14:51:12 by tpan              #+#    #+#             */
-/*   Updated: 2016/12/20 18:38:22 by tpan             ###   ########.fr       */
+/*   Updated: 2016/12/21 17:11:32 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ char	*ft_strdup(const char *s1)
 	s2 = (char *)malloc((ft_strlen(s1) + 1) * (sizeof(char)));
 	if (s2 == NULL)
 		return (NULL);
-	return(ft_strcpy(s2,s1));
+	return (ft_strcpy(s2, s1));
 }
