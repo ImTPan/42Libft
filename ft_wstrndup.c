@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_wstrndup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/01 14:51:12 by tpan              #+#    #+#             */
-/*   Updated: 2016/11/11 19:45:11 by tpan             ###   ########.fr       */
+/*   Created: 2017/02/28 22:07:06 by tpan              #+#    #+#             */
+/*   Updated: 2017/03/20 20:11:20 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+wchar_t		*ft_wstrndup(const wchar_t *s1, size_t n)
 {
-	char			*str;
-	char			*p;
+	wchar_t			*str;
+	wchar_t			*p;
 	unsigned long	i;
 
 	i = 0;
 	if ((size_t)ft_strlen((char *)s1) < n)
-		str = (char *)malloc(sizeof(char) * ft_strlen((char *)s1) + 1);
+		str = (wchar_t *)malloc(sizeof(char) * ft_strlen((char *)s1) + 1);
 	else
-		str = (char *)malloc(sizeof(char) * (n + 1));
+		str = (wchar_t *)malloc(sizeof(char) * (n + 1));
 	if (str && n)
 	{
 		p = str;
-		while (*s1 && n > i)
+		while (*s1 && n > 1)
 		{
 			*p++ = *s1++;
 			n--;

@@ -6,16 +6,11 @@
 #    By: tpan <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/31 18:58:43 by tpan              #+#    #+#              #
-#    Updated: 2016/12/14 08:32:21 by tpan             ###   ########.fr        #
+#    Updated: 2017/03/21 15:38:24 by tpan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-
-CC		= gcc
-
-CFLAGS 	= -Wall -Wextra -Werror
-
 SRC 	= ft_strlen.c ft_strncpy.c ft_strcpy.c \
 		  ft_strcmp.c ft_putchar.c ft_putstr.c \
 		  ft_atoi.c ft_tolower.c ft_isalpha.c \
@@ -37,23 +32,32 @@ SRC 	= ft_strlen.c ft_strncpy.c ft_strcpy.c \
 		  ft_lstnew.c ft_lstdelone.c ft_itoa.c \
 		  ft_lstdel.c ft_lstiter.c ft_lstmap.c \
 		  ft_strsub.c ft_lstadd.c ft_isnegative.c \
-		  ft_reverse.c ft_realloc.c\
+		  ft_reverse.c ft_realloc.c ft_utf8charencode.c \
+		  ft_utf8charsize.c ft_utf8strencode.c ft_utf8strnencode.c\
+		  ft_wchar_memset.c ft_wcharbits.c ft_wcharsize_utf8.c \
+		  ft_wctomb.c ft_wstrcpy.c ft_wstrdup.c ft_wstrlen.c \
+		  ft_wstrndup.c ft_wstrnsize_utf8.c ft_wstrsize_utf8.c \
+		  ft_ishex.c ft_itoa_base.c ft_itoa_base_intmax.c \
+		  ft_itoa_base_uintmax.c ft_itoa_base_ull.c ft_nbrlen.c \
+		  ft_tolower_str.c ft_toupper_str.c \
 
 OBJ 	= $(SRC:.c=.o)
-	
-.PHONY: $(NAME), all, clean, fclean, re
 
+CC 	= -c -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): 
-	$(CC) $(CFLAGS) -c $(SRC)
+	gcc $(SRC) $(CC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME) 
 
 clean:
-	rm -rf $(OBJ)
+	/bin/rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	/bin/rm -f $(NAME)
+	/bin/rm -f libft.h.gch
 
 re: fclean all 
+
+.PHONY: $(NAME), all, clean, fclean, re

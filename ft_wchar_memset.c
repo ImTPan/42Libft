@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_wchar_memset.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 16:25:04 by tpan              #+#    #+#             */
-/*   Updated: 2016/11/17 10:39:14 by tpan             ###   ########.fr       */
+/*   Created: 2017/03/12 15:22:20 by tpan              #+#    #+#             */
+/*   Updated: 2017/03/12 15:24:06 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void		*ft_wchar_memset(void *b, wchar_t c, size_t len)
 {
-	char *join;
+	unsigned int	i;
+	wchar_t			*b2;
 
-	if (!s1 || !s2)
-		return (NULL);
-	if (!(join = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	ft_strcpy(join, s1);
-	ft_strcpy((join + ft_strlen(s1)), s2);
-	return (join);
+	b2 = b;
+	i = 0;
+	while (i < len)
+	{
+		b2[i] = (wchar_t)c;
+		i++;
+	}
+	return (b);
 }

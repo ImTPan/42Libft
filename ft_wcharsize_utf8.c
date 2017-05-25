@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_wcharsize_utf8.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/13 16:09:30 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/24 17:34:09 by tpan             ###   ########.fr       */
+/*   Created: 2017/03/12 15:25:51 by tpan              #+#    #+#             */
+/*   Updated: 2017/03/20 20:09:23 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *str)
-{
-	char *start;
+/*
+** Returns the number of bytes that will be needed to represent a unicode
+** code point in UTF-8 format.
+*/
 
-	start = (char *)str;
-	while (*str != '\0')
-	{
-		str++;
-	}
-	return (str - start);
+size_t		ft_wcharsize_utf8(wchar_t c)
+{
+	size_t bits;
+
+	bits = ft_wcharbits(c);
+	if (bits <= 7)
+		return (1);
+	if (bits <= 11)
+		return (2);
+	if (bits <= 16)
+		return (3);
+	if (bits <= 21)
+		return (4);
+	else
+		return (0);
 }

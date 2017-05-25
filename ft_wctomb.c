@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_wctomb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/13 16:09:30 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/24 17:34:09 by tpan             ###   ########.fr       */
+/*   Created: 2017/03/12 15:41:47 by tpan              #+#    #+#             */
+/*   Updated: 2017/03/12 15:45:37 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *str)
+int			ft_wctomb(char *s, wchar_t wc)
 {
-	char *start;
+	int		len;
+	size_t	i;
 
-	start = (char *)str;
-	while (*str != '\0')
-	{
-		str++;
-	}
-	return (str - start);
+	i = 0;
+	len = ft_utf8charsize(wc);
+	if (len >= 4)
+		s[i++] = (0xFF000000 & wc) >> 24;
+	if (len >= 3)
+		s[i++] = (0xFF0000 & wc) >> 16;
+	if (len >= 2)
+		s[i++] = (0xFF & wc) >> 8;
+	if (len >= 1)
+		s[i++] = 0xFF & wc;
+	return (len);
 }

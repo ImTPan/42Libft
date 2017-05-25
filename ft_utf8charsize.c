@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_utf8charsize.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/13 16:09:30 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/24 17:34:09 by tpan             ###   ########.fr       */
+/*   Created: 2017/03/11 16:45:52 by tpan              #+#    #+#             */
+/*   Updated: 2017/03/20 20:09:47 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *str)
-{
-	char *start;
+/*
+** Returns the number of bytes needed to represent a UTF-8 character which
+** is stored in a wchar_t.
+*/
 
-	start = (char *)str;
-	while (*str != '\0')
-	{
-		str++;
-	}
-	return (str - start);
+size_t		ft_utf8charsize(wchar_t c)
+{
+	unsigned int	f;
+
+	f = c;
+	if (f <= 0xFF)
+		return (1);
+	if (f <= 0xFFFF)
+		return (2);
+	if (f <= 0xFFFFFF)
+		return (3);
+	if (f <= 0xFFFFFFFF)
+		return (4);
+	return (0);
 }

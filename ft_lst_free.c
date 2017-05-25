@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lst_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 16:25:04 by tpan              #+#    #+#             */
-/*   Updated: 2016/11/17 10:39:14 by tpan             ###   ########.fr       */
+/*   Created: 2017/04/09 16:25:05 by tpan              #+#    #+#             */
+/*   Updated: 2017/04/09 16:26:16 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lst_free(void *content, size_t content_size)
 {
-	char *join;
-
-	if (!s1 || !s2)
-		return (NULL);
-	if (!(join = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	ft_strcpy(join, s1);
-	ft_strcpy((join + ft_strlen(s1)), s2);
-	return (join);
+	content_size = 0;
+	if (content)
+		free(content);
 }
