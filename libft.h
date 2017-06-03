@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/31 18:59:29 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/24 22:22:12 by tpan             ###   ########.fr       */
+/*   Created: 2017/05/25 18:16:47 by tpan              #+#    #+#             */
+/*   Updated: 2017/05/31 19:34:06 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdarg.h>
 # include <limits.h>
 
+# define BUFF_SIZE 1024
+# define ERRCHECK(x) if (x) return (-1)
 # define MAX(A, B) (((A) > (B)) ? (A) : (B))
 # define MIN(A, B) (((A) < (B)) ? (A) : (B))
 # define ABSVAL(A) ((A) < 0 > -(A) : (A))
@@ -33,6 +35,7 @@ typedef struct		s_list
 
 typedef char		t_utf8;
 
+int					get_next_line(const int fd, char **line);
 int					ft_strcmp(char *s1, char *s2);
 char				*ft_strcpy(char *dest, const char *src);
 size_t				ft_strlen(const char *str);
@@ -40,6 +43,7 @@ char				*ft_strncpy(char *dest, const char *src, unsigned int n);
 void				ft_putchar(char c);
 void				ft_putstr(char *str);
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_isalpha(int c);
@@ -125,6 +129,14 @@ wchar_t				*ft_wstrdup(wchar_t *str);
 void				ft_lst_free(void *content, size_t content_size);
 void				ft_lst_append(t_list **alst, t_list *new);
 int					ft_lst_len(t_list *begin_list);
+int					ft_tab_len(char **table);
 char				**ft_tab_add_one(char **src_tab, char *new_item);
+void				ft_tab_del(char ***table);
 char				**ft_strtok(char *str, char *delim);
+int					get_next_line(const int fd, char **line);
+int					*ft_int_sort(int *arr, int length);
+int					*ft_int_rev_sort(int *arr, int length);
+int					ft_smallest_int(int *arr, int size);
+int					ft_ints_arr_sorted(int *ints, int len);
+
 #endif

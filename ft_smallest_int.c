@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_smallest_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/13 16:09:30 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/31 19:36:00 by tpan             ###   ########.fr       */
+/*   Created: 2017/05/25 11:15:39 by tpan              #+#    #+#             */
+/*   Updated: 2017/05/25 11:23:30 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *str)
-{
-	char *start;
+/*
+** Return the index of the smallest int in an array.
+*/
 
-	start = (char *)str;
-	while (*str != '\0')
+int		ft_smallest_int(int *arr, int size)
+{
+	int		smallest;
+	int		sm_index;
+	int		i;
+
+	smallest = arr[0];
+	sm_index = 0;
+	i = 1;
+	while (i < size)
 	{
-		str++;
+		if (arr[i] < smallest)
+		{
+			smallest = arr[i];
+			sm_index = i;
+		}
+		i++;
 	}
-	return (str - start);
+	return (sm_index);
 }

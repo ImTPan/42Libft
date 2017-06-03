@@ -6,11 +6,11 @@
 /*   By: tpan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 14:35:43 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/24 22:26:30 by tpan             ###   ########.fr       */
+/*   Updated: 2017/05/26 13:30:59 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static t_list		*read_fd(int fd)
 {
@@ -30,13 +30,13 @@ static t_list		*read_fd(int fd)
 	return (tmp);
 }
 
-static void			join(t_list *node, char const *buff)
+static void			join(t_list *node, char const *buff, size_t size)
 {
 	char			*tmp;
 
 	if (node->content == NULL)
 	{
-		node->content = (char *)buff;
+		node->content = ft_strndup(buff, size);
 	}
 	else
 	{
@@ -60,7 +60,7 @@ int					get_next_line(const int fd, char **line)
 	ERRCHECK((fd < 0 || line == NULL || read(fd, buf, 0) < 0));
 	nd = read_fd(fd);
 	while (!ft_strchr(nd->content, '\n') && (ret = read(fd, buf, BUFF_SIZE)))
-		join(nd, ft_strndup(buf, ret));
+		join(nd, ft_strndup(buf, ret), ret);
 	if (ret < BUFF_SIZE && ft_strlen(nd->content) == 0)
 	{
 		ft_strclr(*line);
@@ -71,7 +71,7 @@ int					get_next_line(const int fd, char **line)
 	*line = (ptr[i] == '\n') ? (ft_strndup(ptr, i)) : (ft_strdup(nd->content));
 	if ((ret == 0 && ptr[i] == 0))
 		ft_strclr(nd->content);
-	nd->content = (ptr[i] == '\n') ? (ft_strdup(ptr + (i + 1))) : (ptr);
-	free(ptr);
+	nd->content = (ptr[i] == '\n') ? (ft_strdup(nd->content + (i + 1))) :
+		(nd->content);
 	return (1);
 }

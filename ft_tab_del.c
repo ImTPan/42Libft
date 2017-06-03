@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tab_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpan <tpan@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/13 16:09:30 by tpan              #+#    #+#             */
-/*   Updated: 2017/05/31 19:36:00 by tpan             ###   ########.fr       */
+/*   Created: 2017/05/24 13:02:08 by tpan              #+#    #+#             */
+/*   Updated: 2017/05/24 13:08:49 by tpan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *str)
-{
-	char *start;
+/*
+** Erase and free a table/paragraph of strings (char ***), set the ptr to null.
+*/
 
-	start = (char *)str;
-	while (*str != '\0')
+void		ft_tab_del(char ***table)
+{
+	int		i;
+
+	i = 0;
+	if (table && *table)
 	{
-		str++;
+		while ((*table)[i])
+			ft_strdel(&(*table)[i++]);
+		free(*table);
+		*table = NULL;
 	}
-	return (str - start);
+	return ;
 }
